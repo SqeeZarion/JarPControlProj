@@ -1,4 +1,4 @@
-﻿namespace JarPControlProject.Enity;
+﻿namespace JarPControlProj.Enity;
 
 public class TelegramBot
 {

@@ -1,4 +1,5 @@
-﻿namespace JarPControlProject.Enity;
+﻿namespace JarPControlProj.Enity;
+using System.Collections;
 
 class PCControl
 {
