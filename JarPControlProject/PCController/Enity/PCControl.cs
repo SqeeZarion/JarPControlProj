@@ -23,6 +23,18 @@ public class PCControl
         set { openPrograms = value; }
     }
 
+    public int Volume
+    {
+        get { return volume; }
+        set { volume = value; }
+    }
+
+    private Boolean IsMusicPlaying
+    {
+        get { return isMusicPlaying; }
+        set { isMusicPlaying = value; }
+    }
+
     public PCControl(String computerName) {
         this.computerName = computerName;
         this.openPrograms = new List<string>();

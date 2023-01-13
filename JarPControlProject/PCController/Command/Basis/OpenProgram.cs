@@ -6,6 +6,7 @@ namespace JarPControlProject.PCController.Command;
 public class OpenProgram : CommandInterface
 {
     private PCControl pcControl;
+    private CommandResult<String> result;
 
     public OpenProgram(PCControl pcControl)
     {
@@ -22,17 +23,17 @@ public class OpenProgram : CommandInterface
                 // Open the program
                 Process.Start(programName);
                 pcControl.OpenProgram.Add(programName);
-                Console.WriteLine("Program " + programName + " opened successfully.");
+
+                result = new CommandResult<String>("Succeed!", "Program" + programName + "opened successfully.!", true);
             }
             catch (Exception e)
             {
-                Console.WriteLine("Failed to open program. Error: " + e.Message);
+                result = new CommandResult<String>("Failed!", "Failed to open program. Error: " + e.Message, false);
             }
         }
         else
-            Console.WriteLine("Program " + programName + " is already open.");
+            result = new CommandResult<String>("Failed!", "Program " + programName + " is already open.", false);
 
-        CommandResult<String> result = new CommandResult<String>("Succeed!!!!!", "Deleting works!", true);
         return result;
     }
 }
