@@ -1,7 +1,9 @@
-﻿namespace JarPControlProj.Enity;
+﻿using JarPControlProject.PCController.Command;
+
+namespace JarPControlProj.Enity;
 using System.Collections;
 
-class PCControl
+public class PCControl
 {
     // A field containing the name of the computer
     private String computerName;
@@ -14,6 +16,12 @@ class PCControl
 
     // A field containing the current sound volume
     private int volume;
+
+    public List<String> OpenProgram
+    {
+        get { return openPrograms;}
+        set { openPrograms = value; }
+    }
 
     public PCControl(String computerName) {
         this.computerName = computerName;
