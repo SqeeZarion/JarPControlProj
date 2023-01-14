@@ -3,7 +3,7 @@ using JarPControlProj.Enity;
 
 namespace JarPControlProject.PCController.Command;
 
-public class OpenProgram : CommandInterface
+public class OpenProgram : ComInterfaceOpenClose
 {
     private PCControl pcControl;
     private CommandResult<String> result;
@@ -16,12 +16,13 @@ public class OpenProgram : CommandInterface
     public CommandResult<String> Execute(String programName)
     {
         // Check if the program is already open
-        if (!pcControl.OpenProgram.Contains(programName))
+        if ( !pcControl.OpenProgramsProcess.ContainsKey(programName))
         {
             try
             {
                 // Open the program
-                Process.Start(programName);
+                Process process = Process.Start(programName);
+                pcControl.OpenProgramsProcess.Add(programName, process);
                 pcControl.OpenProgram.Add(programName);
 
                 result = new CommandResult<String>("Succeed!", "Program" + programName + "opened successfully.!", true);
@@ -35,5 +36,12 @@ public class OpenProgram : CommandInterface
             result = new CommandResult<String>("Failed!", "Program " + programName + " is already open.", false);
 
         return result;
+    }
+
+    public void GetOpenPrograms()
+    {
+        Console.WriteLine("List of open programs:");
+        foreach (String program in pcControl.OpenProgram)
+            Console.WriteLine(program);
     }
 }

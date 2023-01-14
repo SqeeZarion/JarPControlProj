@@ -1,6 +1,8 @@
-﻿using JarPControlProject.PCController.Command;
+﻿using System.Diagnostics;
+using JarPControlProject.PCController.Command;
 
 namespace JarPControlProj.Enity;
+
 using System.Collections;
 
 public class PCControl
@@ -17,9 +19,17 @@ public class PCControl
     // A field containing the current sound volume
     private int volume;
 
+    private Dictionary<string, Process> openProgramsProcess;
+
+    public Dictionary<string, Process> OpenProgramsProcess
+    {
+        get { return openProgramsProcess; }
+        set { openProgramsProcess = value; }
+    }
+    
     public List<String> OpenProgram
     {
-        get { return openPrograms;}
+        get { return openPrograms; }
         set { openPrograms = value; }
     }
 
@@ -35,10 +45,12 @@ public class PCControl
         set { isMusicPlaying = value; }
     }
 
-    public PCControl(String computerName) {
+    public PCControl(String computerName)
+    {
         this.computerName = computerName;
         this.openPrograms = new List<string>();
         this.isMusicPlaying = false;
         this.volume = 50;
+        openProgramsProcess = new Dictionary<string, Process>();
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace JarPControlProject.PCController.Command;
 
-public interface CommandInterface
+public interface ComInterfaceOpenClose
 {
     public CommandResult<String> Execute(String programName);
 }
