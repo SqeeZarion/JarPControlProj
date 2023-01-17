@@ -12,4 +12,12 @@
       <Folder Include="PCController\Command\Basis" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="PCController\Command\Basis\DecreaseVolume.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="PCController\Command\Basis\IncreaseVolume.cs" />
+    </ItemGroup>
+
 </Project>
