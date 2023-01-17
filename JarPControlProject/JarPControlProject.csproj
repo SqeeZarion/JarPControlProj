@@ -8,4 +8,8 @@
         <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="PCController\Command\Basis" />
+    </ItemGroup>
+
 </Project>
