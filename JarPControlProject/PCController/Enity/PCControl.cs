@@ -1,9 +1,6 @@
 ﻿using System.Diagnostics;
-using JarPControlProject.PCController.Command;
 
 namespace JarPControlProj.Enity;
-
-using System.Collections;
 
 public class PCControl
 {
